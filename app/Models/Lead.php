@@ -15,7 +15,10 @@ class Lead extends Model
         'manager_id'
     ];
 
-
+    protected $attributes = [
+        'status' => 'new',
+    ];
+    protected $hidden = ['updated_at'];
     public function manager()
     {
         return $this->belongsTo(Manager::class);

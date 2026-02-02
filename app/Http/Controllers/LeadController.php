@@ -16,6 +16,12 @@ class LeadController extends Controller
 
         $lead = Lead::create($validated);
 
-        return response()->json($lead, 201);
+        return response()->json([
+            'id' => $lead->id,
+            'name' => $lead->name,
+            'phone' => $lead->phone,
+            'status' => $lead->status,
+            'manager_id' => $lead->manager_id,
+        ], 201);
     }
 }

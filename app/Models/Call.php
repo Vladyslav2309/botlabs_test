@@ -14,7 +14,7 @@ class Call extends Model
         'duration',
         'result'
     ];
-
+    protected $hidden = ['updated_at'];
 
     public function lead()
     {

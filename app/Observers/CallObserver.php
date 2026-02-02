@@ -6,9 +6,7 @@ use App\Models\Call;
 
 class CallObserver
 {
-    /**
-     * Обробка події створення дзвінка
-     */
+
     public function created(Call $call)
     {
         $lead = $call->lead;
@@ -24,7 +22,7 @@ class CallObserver
         if ($call->result === 'success') {
             $lead->status = 'won';
         }
-        
+
         $lastResults = $lead->calls()
             ->latest()
             ->limit(3)
